@@ -36,7 +36,6 @@ local OldState = player.Character:FindFirstChildWhichIsA('Humanoid'):GetState()
             end;
         end;
     end);	
-end)
 
     	if CMD == 'headless' then
     	    player.Character.Head:BreakJoints()
