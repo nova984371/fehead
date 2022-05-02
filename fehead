@@ -1,9 +1,40 @@
+local OldState = player.Character:FindFirstChildWhichIsA('Humanoid'):GetState()
 TextButton_2.MouseButton1Click:connect(function()
-player.Character.Head:BreakJoints()
-    player.Character.Head.Position = Vector3.new(0,99999999999999,0)
+    local Character = player.Character
+    local Humanoid = Character:FindFirstChildWhichIsA('Humanoid')
+    local Control = false
+    local loopFunction = function()
+        Humanoid:ChangeState(11)
+    end;
+    local Loop
+    local Start = function()
+        if Control == false then
+            Loop = game:GetService("RunService").Heartbeat:Connect(loopFunction);
+        end
+    end;
+    local Ended = function()
+        if Control == true then
+            Humanoid:ChangeState(OldState)
+        end
+    end;
+    Start()	
+    local Pause = function()
+        Loop:Disconnect()
+    end;
+    local Pause2 = function()
+        Start();
+        Loop2:Disconnect()
+    end;
+    UIS.InputBegan:Connect(function(a, b)
+        if a.KeyCode == Enum.KeyCode.Z and not b then
+            if Control == false then
+            	Control = true;
+            	Ended();
+            	Pause();
+            elseif Control == true then
+            	Control = false;
+            	Pause2();
+            end;
+        end;
+    end);	
 end)
-
-    	if CMD == 'FE headless' then
-    	    player.Character.Head:BreakJoints()
-    	    player.Character.Head.Position = Vector3.new(0,99999999999999,0)
-    	end
