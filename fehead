@@ -1,0 +1,20 @@
+player.Character.Head:BreakJoints()
+    player.Character.Head.Position = Vector3.new(0,99999999999999,0)
+end)
+GoTo.MouseButton1Click:Connect(function()
+    player.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[TargetTextbox.Text].Character.UpperTorso.Position)
+end)
+NoRecoil.MouseButton1Click:Connect(function()
+    for i,v in pairs(game:GetService('Workspace'):GetChildren()) do
+        if v:IsA('Camera') then
+            v:Destroy()
+        end
+    end
+    local newcam = Instance.new('Camera',game.Workspace)
+    newcam.Name = 'Camera'
+    newcam.CameraType = 'Custom'
+    newcam.CameraSubject = game:GetService('Workspace').Players:FindFirstChild(player.Name):FindFirstChild('Humanoid')
+    newcam.HeadLocked = true
+    newcam.HeadScale = 1
+        	    
+end)
