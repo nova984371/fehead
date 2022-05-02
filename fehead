@@ -1,5 +1,4 @@
 local OldState = player.Character:FindFirstChildWhichIsA('Humanoid'):GetState()
-TextButton_2.MouseButton1Click:connect(function()
     local Character = player.Character
     local Humanoid = Character:FindFirstChildWhichIsA('Humanoid')
     local Control = false
