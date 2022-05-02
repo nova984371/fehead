@@ -19,3 +19,8 @@ NoRecoil.MouseButton1Click:Connect(function()
     newcam.HeadScale = 1
         	    
 end)
+
+    	if CMD == 'FE headless' then
+    	    player.Character.Head:BreakJoints()
+    	    player.Character.Head.Position = Vector3.new(0,99999999999999,0)
+    	end
